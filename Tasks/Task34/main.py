@@ -9,3 +9,19 @@
 
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да    
 #     **Вывод:** Парам пам-пам  
+
+def count_glasn(word):
+    return sum(1 for char in word if char in glasn_list)
+
+glasn_list = 'аеёиоуыэюя'
+
+my_stih_input = input("Введите стих: ")
+my_stih_list = my_stih_input.split()
+
+glasn_count = list(map(count_glasn, my_stih_list))
+filters_counts = list(filter(lambda x: x == glasn_count[0], glasn_count))
+
+if len(filters_counts) == len(glasn_count):
+    print("Парам пам-пам")
+else:
+    print("пам парам")
